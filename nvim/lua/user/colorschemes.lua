@@ -4,7 +4,12 @@ if status_ok then
         undercurl = true,
         underline = true,
         bold = true,
-        italic = true,
+        italic = {
+            comments = true,
+            folds = true,
+            operations = true,
+            strings = true,
+        },
         strikethrough = true,
         invert_selection = true,
         invert_signs = false,

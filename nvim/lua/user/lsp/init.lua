@@ -5,7 +5,7 @@ if okay_m then
     local okay_mlc, mlc = pcall(require, "mason-lspconfig")
     if okay_mlc then
         mlc.setup({
-            ensure_installed = { "asm_lsp", "rust_analyzer", "sumneko_lua", "taplo" }
+            ensure_installed = { "asm_lsp", "rust_analyzer", "lua_ls", "taplo" }
         })
 
         -- Enable servers using lspconfig
@@ -18,15 +18,18 @@ if okay_m then
                 capabilities = handlers.capabilities,
                 on_attach = handlers.on_attach,
             }
+            lc.dartls.setup{
+                capabilities = handlers.capabilities,
+                on_attach = handlers.on_attach,
+            }
+            lc.lua_ls.setup{
+                capabilities = handlers.capabilities,
+                on_attach = handlers.on_attach,
+            }
             lc.rust_analyzer.setup{
                 capabilities = handlers.capabilities,
                 on_attach = handlers.on_attach,
                 single_file_support = true,
-            }
-            lc.sumneko_lua.setup{
-                capabilities = handlers.capabilities,
-                on_attach = handlers.on_attach,
-                settings = require("user.lsp.settings.sumneko_lua")
             }
             lc.taplo.setup{
                 capabilities = handlers.capabilities,
