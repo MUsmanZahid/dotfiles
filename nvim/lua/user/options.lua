@@ -23,6 +23,7 @@ local options = {
     writebackup = true,
     expandtab = true,
     shiftwidth = 4,
+    softtabstop = 4,
     tabstop = 4,
     cursorline = true,
     number = true,
@@ -35,6 +36,16 @@ local options = {
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
+
+-- Choose between light and dark background on startup
+local hour = tonumber(vim.fn.strftime("%H"))
+if hour > 7 or hour < 17 then
+    BG = "light"
+else
+    BG = "dark"
+end
+
+vim.opt.background = BG
 
 -- Rust specific options
 vim.g.rustfmt_autosave = 1;
