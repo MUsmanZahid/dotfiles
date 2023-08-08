@@ -1,0 +1,72 @@
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+
+# Language Server
+plug "ul/kak-lsp" do %{
+    cargo install --force --path .
+} config %{
+    set global lsp_cmd "kak-lsp -s %val{session} -vvv --log /tmp/kak-lsp.log"
+    hook global WinSetOption filetype=(c|cpp|rust) %{
+        set-option global lsp_auto_highlight_references true
+        set-option global lsp_hover_anchor true
+
+        hook global WinSetOption filetype=(rust) %{
+            set-option global lsp_server_configuration rust.clippy_preference="on"
+            hook window BufWritePre .* %{
+                evaluate-commands %sh{
+                   test -f "rustfmt.toml" && printf lsp-formatting-sync
+                }
+            }
+        }
+
+        echo -debug "Enabling LSP for filetype %opt{filetype}"
+
+        lsp-enable-window
+        lsp-auto-signature-help-enable
+    }
+
+    map global user l ': enter-user-mode lsp<ret>' -docstring 'Enter lsp mode'
+    hook global KakEnd .* %{
+        unmap global user l
+        lsp-exit
+    }
+}
+
+# FZF Integration
+plug "andreyorst/fzf.kak"
+map global user f ':fzf-mode<ret>' -docstring 'FZF mode'
+
+# Smarttab: Replaces tabs with spaces depending on filetype
+plug "andreyorst/smarttab.kak" defer smarttab %{
+    # when `backspace` is pressed, 4 spaces are deleted at once
+    set-option global softtabstop 4
+} config %{
+    hook global WinSetOption filetype=.* %{
+        expandtab
+    }
+}
+
+# We can use 'jj' to escape to normal mode from insert mode.
+hook global InsertChar j %{
+    try %{
+        exec -draft hH <a-k>jj<ret> d
+        exec <esc>
+    }
+}
+
+# Execute `esc` when pressing Ctrl+[
+hook global InsertKey <c-\[> %{
+    exec <esc>
+}
+
+# Keymappings
+map global user , ': bp<ret>' -docstring 'Previous buffer'
+map global user . ': bn<ret>' -docstring 'Next buffer'
+map global user w ': w<ret>' -docstring 'Write buffer'
+
+colorscheme monokai
+
+add-highlighter global/ number-lines -relative -hlcursor -min-digits 2
+add-highlighter global/ column 100 PrimaryCursor
+add-highlighter global/ wrap
+set-option global tabstop 4
+set-option global indentwidth 4
