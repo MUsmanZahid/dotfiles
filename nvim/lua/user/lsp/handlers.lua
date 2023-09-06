@@ -31,13 +31,13 @@ local function lsp_keymaps(bufnr)
     map(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
     map(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
     map(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-    map(bufnr, "i", "<C-k>", "<cmd>lua vim.lsp.buf.signature.help()<CR>", opts)
+    map(bufnr, "i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
     map(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
     map(bufnr, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<CR>", opts)
     map(bufnr, "n", "]d", "<cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<CR>", opts)
     map(bufnr, "n", "gk", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 
-    vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+    vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
 end
 
 M.on_attach = function(client, bufnr)
