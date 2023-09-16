@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd(
 vim.api.nvim_create_autocmd(
     { "FileType" },
     {
-        pattern = { "dart" },
+        pattern = { "c", "cpp", "dart" },
         command = "setlocal shiftwidth=2 softtabstop=2 tabstop=2",
     }
 )

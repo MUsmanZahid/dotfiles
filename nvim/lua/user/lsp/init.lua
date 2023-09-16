@@ -5,7 +5,7 @@ if okay_m then
     local okay_mlc, mlc = pcall(require, "mason-lspconfig")
     if okay_mlc then
         mlc.setup({
-            ensure_installed = { "asm_lsp", "jedi_language_server", "lua_ls", "rust_analyzer", "taplo" }
+            ensure_installed = { "asm_lsp", "clangd", "jedi_language_server", "lua_ls", "rust_analyzer", "taplo" }
         })
 
         -- Enable servers using lspconfig
@@ -15,6 +15,10 @@ if okay_m then
             handlers.setup()
 
             lc.asm_lsp.setup{
+                capabilities = handlers.capabilities,
+                on_attach = handlers.on_attach,
+            }
+            lc.clangd.setup{
                 capabilities = handlers.capabilities,
                 on_attach = handlers.on_attach,
             }
