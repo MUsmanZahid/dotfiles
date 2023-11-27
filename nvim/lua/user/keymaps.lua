@@ -35,6 +35,7 @@ map("n", "<leader>\\", ":vsplit<CR>", opts)
 map("n", "<leader>-", ":split<CR>", opts)
 
 -- Telescope
+map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
 map("n", "<leader>fc", "<cmd>Telescope colorscheme<CR>", opts)
 map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts)
 map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opts)
