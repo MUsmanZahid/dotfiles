@@ -244,6 +244,7 @@ intelephense.storagePath = "/tmp/intelephense"
 filetypes = ["python"]
 roots = ["requirements.txt", "setup.py", ".git", ".hg"]
 command = "pylsp"
+offset_encoding = "utf-8"
 settings_section = "_"
 [language.python.settings._]
 # See https://github.com/python-lsp/python-lsp-server#configuration
