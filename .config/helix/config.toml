@@ -1,0 +1,35 @@
+theme = "gruvbox_dark_soft"
+
+[editor]
+cursorcolumn = false
+cursorline = true
+idle-timeout = 250
+line-number = "relative"
+rulers = [80, 100]
+
+[editor.indent-guides]
+character = "⸽"
+skip-levels = 1
+render = true
+
+[editor.lsp]
+display-messages = true
+
+[editor.smart-tab]
+supersede-menu = true
+
+[editor.soft-wrap]
+enable = true
+
+[editor.whitespace.render]
+tab = "all"
+
+# Keybindings
+[keys.insert]
+"C-[" = "normal_mode"
+
+[keys.normal]
+"A-b" = { c = ":buffer-close", n = ":buffer-next", p = ":buffer-previous" }
+"A-c" = { o = ":config-open", r = ":config-reload" , w = ":config-open-workspace" }
+"A-i" = ":toggle-option lsp.display-inlay-hints"
+

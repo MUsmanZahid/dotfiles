@@ -1,0 +1,16 @@
+[author]
+    name = Usman Zahid
+[credential]
+    helper = store
+[core]
+    editor = nvim
+
+# Override for personal
+[includeIf "gitdir:~/code/personal/**"]
+    path = ~/code/personal/.gitconfig
+
+# Override for work
+[includeIf "gitdir:~/code/work/**"]
+    path = ~/code/work/.gitconfig
+[alias]
+    tree = log --oneline --graph

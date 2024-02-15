@@ -1,0 +1,35 @@
+#! /bin/sh
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# Startup programs
+pgrep -x pipewire > /dev/null || pipewire &
+pgrep -x pipewire-pulse > /dev/null || pipewire-pulse &
+pgrep -x wireplumber > /dev/null || wireplumber &
+pgrep -x redshift > /dev/null || redshift &
+pgrep -x sxhkd > /dev/null || sxhkd &
+# pgrep -x xautolock > /dev/null || xautolock -time 15 -locker "xlock -mode random" &
+
+# Keyboard
+setxkbmap -option ctrl:swapcaps
+
+# Display
+xrandr --output DP-2 --rotate inverted --pos 0x0 --output DP-4 --mode 1920x1080 --pos 960x2160 --rate 165.00
+
+# Background
+feh --bg-fill ~/Pictures/biker_girl.png --no-fehbg
+
+# BSPWM configuration
+# Monitors
+bspc monitor DP-2 -d I II
+bspc monitor DP-4 -d III IV
+
+# Windows
+bspc config border_width 1
+bspc config window_gap 0
+
+bspc config borderless_monocle true
+bspc config gapless-monocle true
+
+# Disable 4K monitor
+# xrandr --output DP-2 --off
+# bspc monitor DP-2 --remove
