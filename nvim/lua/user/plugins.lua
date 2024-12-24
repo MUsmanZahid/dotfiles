@@ -49,6 +49,7 @@ return packer.startup(function(use)
     use { "rose-pine/neovim", as = "rose-pine" }
     use "savq/melange"
     use "tanvirtin/monokai.nvim"
+    use {"ntk148v/komau.vim"}
 
     -- Completion plugins
     use "hrsh7th/nvim-cmp"

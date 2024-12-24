@@ -37,6 +37,18 @@ if okay_m then
             lc.rust_analyzer.setup{
                 capabilities = handlers.capabilities,
                 on_attach = handlers.on_attach,
+                settings = {
+                    ["rust-analyzer"] = {
+                        cargo = {
+                            buildScripts = {
+                                enable = true,
+                            },
+                        },
+                        procMacro = {
+                            enable = true
+                        },
+                    }
+                },
                 single_file_support = true,
             }
             lc.taplo.setup{

@@ -14,3 +14,6 @@
     path = ~/code/work/.gitconfig
 [alias]
     tree = log --oneline --graph
+[user]
+	name = MUsmanZahid
+	email = usmanzahid1998@gmail.com

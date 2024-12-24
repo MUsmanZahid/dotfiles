@@ -8,7 +8,7 @@ require "user.lsp"
 
 vim.cmd [[
 try
-  colorscheme gruvbox
+  colorscheme komau
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme default
 endtry

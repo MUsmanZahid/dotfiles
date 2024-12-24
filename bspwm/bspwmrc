@@ -7,21 +7,22 @@ pgrep -x pipewire-pulse > /dev/null || pipewire-pulse &
 pgrep -x wireplumber > /dev/null || wireplumber &
 pgrep -x redshift > /dev/null || redshift &
 pgrep -x sxhkd > /dev/null || sxhkd &
+pgrep -x spotifyd > /dev/null || spotifyd
 # pgrep -x xautolock > /dev/null || xautolock -time 15 -locker "xlock -mode random" &
 
 # Keyboard
 setxkbmap -option ctrl:swapcaps
 
 # Display
-xrandr --output DP-2 --rotate inverted --pos 0x0 --output DP-4 --mode 1920x1080 --pos 960x2160 --rate 165.00
+xrandr --output DisplayPort-1 --rotate inverted --pos 0x0 --output DisplayPort-0 --mode 1920x1080 --pos 960x2160 --rate 165.00
 
 # Background
-feh --bg-fill ~/Pictures/biker_girl.png --no-fehbg
+feh --bg-fill ~/Pictures/dark-void.png --no-fehbg
 
 # BSPWM configuration
 # Monitors
-bspc monitor DP-2 -d I II
-bspc monitor DP-4 -d III IV
+bspc monitor DisplayPort-0 -d I II
+bspc monitor DisplayPort-1 -d III IV
 
 # Windows
 bspc config border_width 1
