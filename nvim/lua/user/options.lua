@@ -36,5 +36,10 @@ for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
+-- Deno options
+vim.g.markdown_fenced_languages = {
+    "ts=typescript"
+}
+
 -- Rust specific options
 vim.g.rustfmt_autosave = 1;

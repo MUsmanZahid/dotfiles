@@ -9,7 +9,7 @@ plug "ul/kak-lsp" do %{
         set-option global lsp_auto_highlight_references true
         set-option global lsp_hover_anchor true
 
-        hook global WinSetOption filetype=(rust) %{
+        hook global WinSetOption filetype=(c|cpp|rust) %{
             set-option global lsp_server_configuration rust.clippy_preference="on"
             hook window BufWritePre .* %{
                 evaluate-commands %sh{
@@ -63,7 +63,7 @@ map global user , ': bp<ret>' -docstring 'Previous buffer'
 map global user . ': bn<ret>' -docstring 'Next buffer'
 map global user w ': w<ret>' -docstring 'Write buffer'
 
-colorscheme monokai
+colorscheme catppuccin_mocha
 
 add-highlighter global/ number-lines -relative -hlcursor -min-digits 2
 add-highlighter global/ column 100 PrimaryCursor

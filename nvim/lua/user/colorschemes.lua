@@ -16,7 +16,7 @@ if status_ok then
         invert_tabline = false,
         invert_indent_guides = false,
         inverse = true,
-        contrast = "hard",
+        contrast = "soft",
     })
 end
 

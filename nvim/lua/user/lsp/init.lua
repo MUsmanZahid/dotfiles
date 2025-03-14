@@ -22,7 +22,7 @@ if okay_m then
                 capabilities = handlers.capabilities,
                 on_attach = handlers.on_attach,
             }
-            lc.dartls.setup{
+            lc.denols.setup{
                 capabilities = handlers.capabilities,
                 on_attach = handlers.on_attach,
             }
@@ -44,8 +44,14 @@ if okay_m then
                                 enable = true,
                             },
                         },
+                        imports = {
+                            granularity = {
+                                group = "module",
+                            },
+                            prefix = "self",
+                        },
                         procMacro = {
-                            enable = true
+                            enable = true,
                         },
                     }
                 },
