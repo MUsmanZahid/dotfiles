@@ -31,19 +31,26 @@ tab = "all"
 "j" = { j = "normal_mode" }
 
 [keys.normal.A-b]
-c = { command = ":buffer-close", label = "Close buffer" }
-n = { command = ":buffer-next", label = "Next buffer" }
-p = { command = ":buffer-previous", label = "Previous buffer" }
+c = ":buffer-close"
+n = ":buffer-next"
+p = ":buffer-previous"
+# c = { command = ":buffer-close", label = "Close buffer" }
+# n = { command = ":buffer-next", label = "Next buffer" }
+# p = { command = ":buffer-previous", label = "Previous buffer" }
 
 [keys.normal.A-c]
-o = { command = ":config-open", label = "Open config" }
-r = { command = ":config-reload", label = "Reload config" }
-w = { command = ":config-open-workspace", label = "Open workspace config" }
+o = ":config-open"
+r = ":config-reload"
+w = ":config-open-workspace"
+# o = { command = ":config-open", label = "Open config" }
+# r = { command = ":config-reload", label = "Reload config" }
+# w = { command = ":config-open-workspace", label = "Open workspace config" }
 
 [keys.normal.space]
 f = "file_picker_in_current_directory"
 F = "file_picker"
-W = { command = ":write", label = "Save file" }
+W = ":write"
+# W = { command = ":write", label = "Save file" }
 
 [keys.normal]
 "A-i" = ":toggle-option lsp.display-inlay-hints"
