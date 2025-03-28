@@ -22,10 +22,6 @@ if okay_m then
                 capabilities = handlers.capabilities,
                 on_attach = handlers.on_attach,
             }
-            lc.denols.setup{
-                capabilities = handlers.capabilities,
-                on_attach = handlers.on_attach,
-            }
             lc.jedi_language_server.setup{
                 capabilities = handlers.capabilities,
                 on_attach = handlers.on_attach,
@@ -58,6 +54,10 @@ if okay_m then
                 single_file_support = true,
             }
             lc.taplo.setup{
+                capabilities = handlers.capabilities,
+                on_attach = handlers.on_attach,
+            }
+            lc.ts_ls.setup{
                 capabilities = handlers.capabilities,
                 on_attach = handlers.on_attach,
             }
